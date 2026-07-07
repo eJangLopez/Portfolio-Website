@@ -18,10 +18,6 @@ export default function Footer({ onNavigate }: FooterProps) {
               <span className="font-display font-bold text-base text-slate-900 tracking-wider">
                 ELIJAH DAVID LOPEZ
               </span>
-              <span className="inline-flex items-center space-x-1 bg-emerald-50 text-emerald-800 text-[8px] font-mono font-medium px-2 py-0.5 rounded-sm border border-emerald-200">
-                <ShieldCheck size={10} />
-                <span>VERIFIED REPO</span>
-              </span>
             </div>
             <p className="text-xs text-slate-500 font-sans leading-relaxed">
               Electronics & Communications Engineering Student at the University of Santo Tomas. Specializing in Embedded Hardware & Cisco Networking systems.

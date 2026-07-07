@@ -96,7 +96,7 @@ export default function SpecializationAccordionList() {
                 onKeyDown={(e) => handleKeyDown(e, cat.category)}
                 className={`w-full rounded-sm border text-xs tracking-wide cursor-pointer flex flex-col justify-center transition-all duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 overflow-hidden ${
                   isDiscovery
-                    ? 'p-5 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 hover:shadow-sm'
+                    ? 'p-5 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-brand-cobalt dark:hover:border-white dark:hover:shadow-[0_0_10px_rgba(255,255,255,0.1)] hover:shadow-sm hover:duration-200'
                     : isActive
                       ? 'h-12 px-4 bg-slate-900 text-white border-slate-900 dark:bg-slate-800 dark:border-slate-700 shadow-sm font-bold flex-row items-center justify-center'
                       : 'h-12 px-0 bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200 flex-row items-center justify-center'
@@ -127,7 +127,7 @@ export default function SpecializationAccordionList() {
                       </div>
                       <div className="flex flex-wrap gap-2 w-full mt-2">
                         {previewTags.map((tag, i) => (
-                          <span key={i} className="text-[10px] font-mono text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-2 py-0.5 rounded-sm">
+                          <span key={i} className="text-[10px] font-mono text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-2 py-0.5 rounded-sm">
                             {tag}
                           </span>
                         ))}
