@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Premium Geometric Balance Palette (Light Slate & Crisp Corporate Contrast) */
+  --color-slate-950: #f8fafc;
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+  --color-slate-200: #e2e8f0;
+  --color-slate-100: #f1f5f9;
+
+  --color-cyan-400: #0891b2;
+  --color-cyan-500: #0e7490;
+  --color-amber-500: #d97706;
+  --color-emerald-500: #047857;
+  
+  --color-brand-bg: #f8fafc;          /* Light Slate-50 background */
+  --color-brand-surface: #ffffff;     /* White card surface */
+  --color-brand-surface-light: #f1f5f9; /* High-contrast hover surface */
+  --color-brand-border: #e2e8f0;      /* Crisp border slate-200 */
+  --color-brand-border-active: #0f172a; /* Deep Slate-900 active focus */
+  
+  --color-brand-accent: #0f172a;      /* Deep Slate-900 corporate accent */
+  --color-brand-copper: #c2410c;      /* Dark hardware copper */
+  --color-brand-cobalt: #1d4ed8;      /* Cisco deep cobalt */
+}
+
+/* Custom Webkit scrollbars to match the Geometric Balance corporate look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-brand-bg);
+  color: var(--color-slate-800);
+  font-family: var(--font-sans);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-brand-bg);
+  color: var(--color-slate-800);
+}
+
+/* Engineering dot-grid background effect in light mode */
+.engineering-grid {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Elegant scanline effect for console-like terminals */
+.scanline {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.06),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.06)
+  );
+  background-size: 100% 4px, 6px 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                DARK THEME OVERRIDES                        */
+/* -------------------------------------------------------------------------- */
+
+html.dark {
+  --color-slate-950: #0a0f1d;
+  --color-slate-900: #f8fafc;
+  --color-slate-800: #e2e8f0;
+  --color-slate-700: #cbd5e1;
+  --color-slate-600: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-400: #475569;
+  --color-slate-300: #1e293b;
+  --color-slate-200: #0f172a;
+  --color-slate-100: #090d16;
+
+  --color-brand-bg: #030712;            /* Ultra-deep dark background */
+  --color-brand-surface: #0b0f19;       /* Deep card slate */
+  --color-brand-surface-light: #161f30; /* Sub-card / hover state */
+  --color-brand-border: #1e293b;        /* Deep muted border line */
+  --color-brand-border-active: #f1f5f9;
+  
+  --color-brand-accent: #38bdf8;        /* Vivid blue/sky corporate accent */
+}
+
+/* Ensure background of body and html updates with dark mode theme */
+html.dark, html.dark body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-slate-800);
+}
+
+/* Automatic conversion of standard static classes to cohesive dark-theme styles */
+html.dark .bg-white {
+  background-color: var(--color-brand-surface) !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: var(--color-brand-surface-light) !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: var(--color-brand-surface-light) !important;
+}
+
+/* Fix navbar backgrounds which have opacity modifiers */
+html.dark #main-nav.bg-white\/90 {
+  background-color: rgba(11, 15, 25, 0.9) !important;
+}
+html.dark .bg-white\/95 {
+  background-color: rgba(11, 15, 25, 0.95) !important;
+}
+
+/* Ensure buttons with bg-slate-900 and text-white remain dark slate-colored for readability */
+html.dark .bg-slate-900 {
+  background-color: #1e293b !important;
+}
+html.dark .bg-slate-900.text-white {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+html.dark button.bg-slate-900.text-white {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+html.dark button.bg-slate-900.text-white:hover {
+  background-color: #334155 !important;
+}
+html.dark a.bg-slate-900.text-white:hover {
+  background-color: #334155 !important;
+}
+
+/* Inputs, textareas, and dropdown states in dark mode */
+html.dark input, 
+html.dark textarea, 
+html.dark select {
+  background-color: var(--color-brand-surface) !important;
+  color: var(--color-slate-900) !important;
+  border-color: var(--color-brand-border) !important;
+}
+html.dark input:focus, 
+html.dark textarea:focus, 
+html.dark select:focus {
+  border-color: var(--color-brand-accent) !important;
+  outline: none;
+}
+
+/* Accent badges (orange, cyan, amber) transformed into glowing translucent chips */
+html.dark .bg-orange-50 {
+  background-color: rgba(194, 65, 12, 0.15) !important;
+}
+html.dark .border-orange-100 {
+  border-color: rgba(194, 65, 12, 0.25) !important;
+}
+html.dark .bg-cyan-50 {
+  background-color: rgba(8, 145, 178, 0.15) !important;
+}
+html.dark .border-cyan-100 {
+  border-color: rgba(8, 145, 178, 0.25) !important;
+}
+html.dark .bg-amber-50 {
+  background-color: rgba(217, 119, 6, 0.15) !important;
+}
+html.dark .border-amber-200 {
+  border-color: rgba(217, 119, 6, 0.25) !important;
+}
+
+/* Border styles */
+html.dark .border-slate-200, 
+html.dark .border-slate-250, 
+html.dark .border-slate-300 {
+  border-color: var(--color-brand-border) !important;
+}
+
+html.dark .border-slate-100 {
+  border-color: var(--color-brand-border) !important;
+}
+
+/* Text styles */
+html.dark .text-slate-900 {
+  color: var(--color-slate-900) !important;
+}
+
+html.dark .text-slate-800 {
+  color: var(--color-slate-800) !important;
+}
+
+html.dark .text-slate-700 {
+  color: var(--color-slate-700) !important;
+}
+
+html.dark .text-slate-600 {
+  color: var(--color-slate-600) !important;
+}
+
+html.dark .text-slate-500 {
+  color: var(--color-slate-500) !important;
+}
+
+/* Make engineering dot-grid look gorgeous and subtle on dark canvas */
+html.dark .engineering-grid {
+  background-image: radial-gradient(rgba(248, 250, 252, 0.035) 1px, transparent 1px);
+}
+
+/* Custom scrollbars for dark mode */
+html.dark ::-webkit-scrollbar-track {
+  background: #090d16;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+
